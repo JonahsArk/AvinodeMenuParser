@@ -18,7 +18,7 @@ namespace AvinodeParser.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine("Error while getting element: " + ex);
             }
 
             return xmlElement;
@@ -39,7 +39,7 @@ namespace AvinodeParser.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine("Error while getting element attribute: " + ex);
             }
 
             return xmlElementAttribute;

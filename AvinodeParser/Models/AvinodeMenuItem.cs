@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace AvinodeParser.Models
 {
@@ -31,6 +32,27 @@ namespace AvinodeParser.Models
 
             IsActive = toReturn;
             return toReturn;
+        }
+
+        public string Print(string indent = "\t")
+        {
+            var builder = new StringBuilder();
+
+            builder.Append(DisplayName + ", " + Path);
+            builder.AppendLine(IsActive ? " ACTIVE" : String.Empty);
+
+            if (SubMenuItems.Count > 0)
+            {
+                var childBuilder = new StringBuilder();
+                foreach (var item in SubMenuItems)
+                {
+                    childBuilder.Append(indent + item.Print(indent + "\t"));
+                }
+
+                builder.Append(childBuilder.ToString());
+            }
+
+            return builder.ToString();
         }
     }
 }
